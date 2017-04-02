@@ -9,6 +9,7 @@ public class SimpleGUI extends JFrame {
 	private JButton button2;
 	private JButton button3;
 	private JButton button4;
+	private Controllers controller;
 
 	
 	public SimpleGUI() {
@@ -37,20 +38,24 @@ public class SimpleGUI extends JFrame {
 	class ButtonEventListener implements ActionListener {//внутренний класс реализующий интерфейс слушателя нажатий кнопок
 
 		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			ActionEvent e =arg0;
+		public void actionPerformed(ActionEvent e) {
 			if (e.getSource()==button){
-				Main.swapXY1ToArray();
+				controller.swapXY1ToArray();
 			}
 			if (e.getSource()==button2){
-				Main.show();
+				controller.show();
 			}
 			if (e.getSource()==button3){
-				Main.mult2XYToArray();
+				controller.mult2XYToArray();
 			}
 			if (e.getSource()==button4){
-				Main.swapXY2ToArray();
+				controller.swapXY2ToArray();
 			}
 		}
+	}
+
+	public void setController(Controllers contr) {
+		controller = contr;
+		
 	}
 }
